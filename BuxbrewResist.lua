@@ -78,7 +78,7 @@ end
 -- Use the same legacy estimate for chat, tooltips and comparisons.
 local function expectedReduction(resistance, level)
     -- CMaNGOS Classic vulnerability reference: defender level, no 0.75 factor.
-    -- This is an estimate; TurtleWoW server behavior has not been verified.
+    -- This is an estimate; Actual server behavior has not been verified.
     if resistance < 0 then
         return resistance / (5 * math.max(level or 1, 20))
     end
@@ -160,7 +160,7 @@ local function printMechanicsDetails(resist, level, schoolName)
     heading("A DoT: Corruption")
     say("A warlock's Corruption deals Shadow damage over time, in ticks. If the cast fails to land, none of its ticks happen.")
     say("After it lands, tick rules depend on the spell. A hypothetical 100-damage tick reduced by 25% deals 75; this is an example, not a Corruption tick prediction.")
-    say("The direct-damage total above is not a universal DoT total. We do not know each TurtleWoW spell's tick rules.")
+    say("The direct-damage total above is not a universal DoT total. Individual spell tick rules have not been verified.")
     heading("All-or-nothing: Frostbolt")
     say("In the Classic reference, a mage's Frostbolt is binary because it combines damage with a slow. Its resistance check lets the spell land or rejects it, instead of partially resisting its initial damage.")
     say("Frostbolt uses Frost resistance. These spell names explain the types; your numbers here describe " .. schoolName .. ".")
@@ -173,7 +173,7 @@ local function printMechanicsDetails(resist, level, schoolName)
     end
     heading("Why the game says Resist")
     say("A failed spell-hit check can also say 'Resist'. That is why the baseline is included in your total, even with 0 resistance.")
-    say("Totals are estimates for ordinary spells, before crits, absorbs and other effects. Enemy spell hit, penetration and special spell rules can change them; TurtleWoW behavior is not verified.")
+    say("Totals are estimates for ordinary spells, before crits, absorbs and other effects. Enemy spell hit, penetration and special spell rules can change them; actual server behavior is not verified.")
 end
 
 local function printSchoolInfo(schoolID, schoolName)

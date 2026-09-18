@@ -2,7 +2,7 @@
 
 See what your resistance stats could mean in combat. BuxbrewResist adds estimated damage reduction and partial-resist chances to the resistance tooltips in your character panel. You can also check your stats in chat with `/buxres`.
 
-Designed for the WoW 1.12 / TurtleWoW client.
+Designed for the WoW 1.12 client.
 
 ## Installation
 
@@ -58,7 +58,7 @@ Available names are `physical`, `holy`, `fire`, `nature`, `frost`, `shadow`, and
 
 **Damage over time (DoT)** happens in ticks, like a warlock's **Corruption**. There are two different questions: did the spell land, and how much damage does a tick deal afterward? A 100-damage tick with a 25% partial resist deals 75. That illustrates the outcome, not its chance. Tick rules depend on the spell, so the addon does not present one universal DoT percentage.
 
-**Binary** means an all-or-nothing resistance check. A mage's **Frostbolt** is a Classic-reference example because it combines damage with a slow: the spell lands or is rejected, rather than having its initial effect partially reduced. Being a DoT or a direct spell does not by itself tell you all its resistance rules. The Classic reference also treats ticks from binary spells specially; this addon does not have a verified TurtleWoW model for each spell.
+**Binary** means an all-or-nothing resistance check. A mage's **Frostbolt** is a Classic-reference example because it combines damage with a slow: the spell lands or is rejected, rather than having its initial effect partially reduced. Being a DoT or a direct spell does not by itself tell you all its resistance rules. The Classic reference also treats ticks from binary spells specially; this addon does not have a verified model for each spell.
 
 **A spell can fail at 0 resistance.** The separate spell-hit check can also produce a “Resist” message in Vanilla. The Classic baseline is 4% spell miss between equal-level opponents before spell-hit bonuses and other modifiers, normally with a 1% minimum. This is an example, not a prediction for every enemy. The addon includes the assumed baseline in its total estimate. Enemy spell-hit bonuses and special spell rules are unknown, so this is an assumed scenario, not a measurement of your current opponent.
 
@@ -74,16 +74,16 @@ The +10 comparison, higher-level comparison, and chat overview also use totals. 
 
 ### How the numbers are calculated
 
-These numbers come from a legacy approximation, **not measured TurtleWoW server probabilities**. Treat them as a guide when comparing resistance values, not a guarantee of what the next spell will do. The binary-spell estimate in detailed chat output refers to an all-or-nothing resist model; it should not be read as a universal chance for every damage-over-time or crowd-control spell.
+These numbers come from a legacy approximation, **not measured server probabilities**. Treat them as a guide when comparing resistance values, not a guarantee of what the next spell will do. The binary-spell estimate in detailed chat output refers to an all-or-nothing resist model; it should not be read as a universal chance for every damage-over-time or crowd-control spell.
 
 For readers interested in the calculation, the model starts with `min(0.75, max(0, resistance / (5 * max(attackerLevel, 20)) * 0.75))`, builds a distribution of partial-resist outcomes, and weights each outcome by its chance. The displayed average can differ from that starting value. Chat, tooltips, and the +10 comparison use the same weighted-average calculation.
 
 Implementation references:
 
-For negative resistance, the vulnerability estimate is `resistance / (5 * max(playerLevel, 20))`. This follows the CMaNGOS Classic reference implementation: it uses your level and does not apply the positive-resistance formula's 0.75 multiplier. It is not confirmed for TurtleWoW. The same negative estimate is used in tooltips and chat.
+For negative resistance, the vulnerability estimate is `resistance / (5 * max(playerLevel, 20))`. This follows the CMaNGOS Classic reference implementation: it uses your level and does not apply the positive-resistance formula's 0.75 multiplier. Actual server behavior has not been verified. The same negative estimate is used in tooltips and chat.
 
 - [Vanilla character resistance tooltip scripts](https://github.com/MOUZU/Blizzard-WoW-Interface/blob/master/1.12.1/FrameXML/PaperDollFrame.xml)
-- [CMaNGOS Classic resistance implementation](https://github.com/cmangos/mangos-classic/blob/master/src/game/Entities/Unit.cpp), `CalculateEffectiveMagicResistancePercent` and `CalculateSpellResistChance`. This is a reference implementation, not confirmation of TurtleWoW's behavior.
+- [CMaNGOS Classic resistance implementation](https://github.com/cmangos/mangos-classic/blob/master/src/game/Entities/Unit.cpp), `CalculateEffectiveMagicResistancePercent` and `CalculateSpellResistChance`. This is a reference implementation, not confirmation of actual server behavior.
 
 ## Screenshots
 
