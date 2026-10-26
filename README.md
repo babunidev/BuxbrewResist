@@ -1,5 +1,7 @@
 # BuxbrewResist
 
+**Author:** Babuni.dev
+
 See what your resistance stats could mean in combat. BuxbrewResist adds estimated damage reduction and partial-resist chances to the resistance tooltips in your character panel. You can also check your stats in chat with `/buxres`.
 
 Designed for the WoW 1.12 client.
