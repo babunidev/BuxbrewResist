@@ -97,10 +97,14 @@ Shadow resistance:
 
 ![Shadow resistance tooltip showing average damage reduction and resist chances](screenshots/shadow-resistance.png)
 
-## Development documentation
 
-- [Concept](CONCEPT.md) · [Roadmap](ROADMAP.md) · [Changelog](CHANGELOG.md)
-- [Architecture](docs/ARCHITECTURE.md) · [Design evidence](docs/DECISIONS.md) · [Development journal](docs/DEVLOG.md)
-- [AI collaborator rules](AGENTS.md)
+## Evidence and status
 
-The development journal distinguishes original author direction, source-based reconstruction, AI assistance, and independently verified behavior.
+Reviewed on 2026-10-26 against `main` at [0691901](https://github.com/babunidev/BuxbrewResist/commit/06919016c8e0e11041fb633920b507a91058dd97). Current Lua, TOC, README and dated commit history were inspected. Source describes implementation; it does not establish successful operation. Historical intent is reconstructed only where labeled. No in-client test or automated test was executed during this documentation pass.
+
+## Documentation
+
+- [Concept](CONCEPT.md) · [Design](docs/DESIGN.md) · [Content](docs/CONTENT.md)
+- [Architecture](docs/ARCHITECTURE.md) · [Decisions](docs/DECISIONS.md)
+- [Roadmap](ROADMAP.md) · [Changelog](CHANGELOG.md) · [Development journal](docs/DEVLOG.md)
+- [AI collaboration](docs/AI_COLLABORATION.md) · [Contributor instructions](AGENTS.md)
